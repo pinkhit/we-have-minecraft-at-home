@@ -1,2 +1,3 @@
-# im-trying-my-best
+# we-have-minecraft-at-home
+
 c++ OpenGL minecraft clone.
