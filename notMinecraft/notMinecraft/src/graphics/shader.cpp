@@ -13,7 +13,7 @@ shader::shader(std::string vs, std::string fs):
 
 shader::~shader()
 {
-    if (progID) 
+    if (glIsProgram(progID)) 
         glDeleteProgram(progID);
     delete shaderSourceCode;
 }
@@ -32,6 +32,8 @@ void shader::unbind() const
 {
     glUseProgram(0);
 }
+
+
 
 static unsigned int CreateShader(GLenum type, std::string& source, std::string& filename)
 {
@@ -55,6 +57,7 @@ static unsigned int CreateShader(GLenum type, std::string& source, std::string& 
         glGetShaderInfoLog(shader_id, length, &length, error_message);
 
         std::cout << "shader failed to compile" << std::endl;
+        std::cout << error_message << std::endl;
 
         free(error_message);
 
@@ -187,4 +190,12 @@ ShaderSources* shader::readFile(std::string vertFile, std::string fragFile)
     }
 
     return shaderSource;
+}
+void shader::setUniformMat4(const std::string& uniformName, glm::mat4 desiredMatrix) const
+{
+    // get the location of uniform
+    int uniformLocation = glGetUniformLocation(progID, uniformName.c_str());
+    // upload the matrix to the shader
+    if (uniformLocation != -1)
+        glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, glm::value_ptr(desiredMatrix));
 }

@@ -27,6 +27,7 @@ public:
 	void unbind() const;
 
 	// uniforms
+	void setUniformMat4(const std::string& uniformName, glm::mat4 desiredMatrix) const;
 
 private:
 	// private variables
@@ -34,7 +35,7 @@ private:
 	std::string vertSourceFile;   // file path to vert shader
 	std::string fragSourceFile;   // file path to frag shader
 	ShaderSources* shaderSourceCode;    // store shader source code
-
+	
 	// private methods
 	unsigned int createShaderProgram(ShaderSources* shaderSource); // returns ID to shader program
 	ShaderSources* readFile(std::string vs, std::string fs);

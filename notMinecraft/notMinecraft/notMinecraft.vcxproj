@@ -71,19 +71,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)notMinecraft\deps\includes;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)notMinecraft\deps;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)notMinecraft\deps\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)notMinecraft\deps\includes;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)notMinecraft\deps;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)notMinecraft\deps\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)notMinecraft\deps\includes;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)notMinecraft\deps;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)notMinecraft\deps\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)notMinecraft\deps\includes;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)notMinecraft\deps;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)notMinecraft\deps\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -160,10 +160,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="deps\src\glad.cpp" />
+    <ClCompile Include="deps\src\stbi_image.cpp" />
     <ClCompile Include="src\graphics\camera.cpp" />
     <ClCompile Include="src\graphics\cubeMesh.cpp" />
     <ClCompile Include="src\graphics\shader.cpp" />
-    <ClCompile Include="src\graphics\vbo.cpp" />
+    <ClCompile Include="src\graphics\texture.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -176,14 +177,15 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="src\systems\GLFWsystem.cpp" />
-    <ClCompile Include="src\systems\inputSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="deps\src\stbi_image.h" />
     <ClInclude Include="src\graphics\camera.h" />
     <ClInclude Include="src\graphics\cubeMesh.h" />
     <ClInclude Include="src\graphics\shader.h" />
-    <ClInclude Include="src\graphics\vbo.h" />
+    <ClInclude Include="src\graphics\texture.h" />
     <ClInclude Include="src\stdafx.h" />
+    <ClInclude Include="src\systems\GLFWsystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
