@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <string>
 #include <fstream>
 
@@ -8,6 +7,8 @@
 static const std::string baseShaderPath = "data/shaders/";
 static const std::string vertShaderPath = "data/shaders/vert/";
 static const std::string fragShaderPath = "data/shaders/frag/";
+
+static std::vector <std::pair<std::pair<std::string, std::string>, unsigned int>> shaderLib;
 
 // struct to store shader code that is parsed in from shader file
 struct ShaderSources
@@ -19,6 +20,8 @@ struct ShaderSources
 class shader
 {
 public:
+	shader(void)
+		: progID(0), vertSourceFile(""), fragSourceFile(""), shaderSourceCode(nullptr) {}
 	shader(std::string vs, std::string fs);
 	~shader();
 

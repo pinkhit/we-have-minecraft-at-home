@@ -14,6 +14,18 @@ bool texture::load(std::string filePath)
 {
     textureSource = filePath;
 
+    // check library if image already loaded
+    for (int i = 0; i < textureLib.size(); i++)
+    {
+        auto libPair = textureLib[i];
+        if (textureSource == libPair.first)
+        {
+            this->ID = libPair.second;
+            std::cout << "loaded texture from library w ID:" << this->ID << std::endl;
+            return true;
+        }
+    }
+
     // loading of image using stb
     imageData = stbi_load((texturePath + filePath).c_str(), &width, &height, &numColorChannels, 0);
 
@@ -48,8 +60,13 @@ bool texture::load(std::string filePath)
         else
         {
             std::cout << "Unknown number of channels on Texture" << std::endl;
+            stbi_image_free(imageData);
+            return false;
         }
 
+        // add to texture library
+        auto libP = std::make_pair(textureSource, ID);
+        textureLib.push_back(libP);
     }
     else
     {

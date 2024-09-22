@@ -3,19 +3,40 @@
 shader::shader(std::string vs, std::string fs):
     vertSourceFile(vs), fragSourceFile(fs)
 {
+    // check shader library for existing vs fs pairing
+    for (int i = 0; i < shaderLib.size(); i++)
+    {
+        auto libPair = shaderLib[i];
+        auto namePair = libPair.first;
+        if (vs == namePair.first && fs == namePair.second)
+        {
+            this->progID = libPair.second;
+            std::cout << "shader program with ID" << this->progID << "assigned from library" << std::endl;
+            return;
+        }
+
+    }
+    // not in library, new shader pair
     shaderSourceCode = readFile(vs, fs);
     if (shaderSourceCode)
     {
         progID = createShaderProgram(shaderSourceCode);
         std::cout << "shader program with ID " << progID << " created" << std::endl;
+
+        // add pair to shader library
+        auto nameP = std::make_pair(vs, fs);
+        auto libP = std::make_pair(nameP, progID);
+        shaderLib.push_back(libP);
+        std::cout << "shader program with vs:" << vs << " and fs " << fs << " added to library" << std::endl;
     }
 }
 
 shader::~shader()
 {
-    if (glIsProgram(progID)) 
-        glDeleteProgram(progID);
-    delete shaderSourceCode;
+// why is this causing INVALID VALUE error ???
+    //if (glIsProgram(progID)) 
+    //    glDeleteProgram(progID);
+    //delete shaderSourceCode;
 }
 
 unsigned int shader::getID() const
