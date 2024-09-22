@@ -95,6 +95,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>"$(ProjectDir)/src"</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -113,6 +114,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>"$(ProjectDir)/src"</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,6 +133,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>"$(ProjectDir)/src"</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,6 +152,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>"$(ProjectDir)/src"</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,6 +165,11 @@
   <ItemGroup>
     <ClCompile Include="deps\src\glad.cpp" />
     <ClCompile Include="deps\src\stbi_image.cpp" />
+    <ClCompile Include="src\components\physics.cpp" />
+    <ClCompile Include="src\components\transform.cpp" />
+    <ClCompile Include="src\game\block.cpp" />
+    <ClCompile Include="src\game\chunk.cpp" />
+    <ClCompile Include="src\game\player.cpp" />
     <ClCompile Include="src\graphics\camera.cpp" />
     <ClCompile Include="src\graphics\cubeMesh.cpp" />
     <ClCompile Include="src\graphics\shader.cpp" />
@@ -180,6 +189,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="deps\src\stbi_image.h" />
+    <ClInclude Include="src\components\physics.h" />
+    <ClInclude Include="src\components\transform.h" />
+    <ClInclude Include="src\game\block.h" />
+    <ClInclude Include="src\game\chunk.h" />
+    <ClInclude Include="src\game\player.h" />
     <ClInclude Include="src\graphics\camera.h" />
     <ClInclude Include="src\graphics\cubeMesh.h" />
     <ClInclude Include="src\graphics\shader.h" />

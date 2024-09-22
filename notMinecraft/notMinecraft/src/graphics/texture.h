@@ -1,6 +1,10 @@
 #pragma once
 
+#include <string>
+
 static const std::string texturePath = "data/assets/Textures/";
+
+static std::vector<std::pair<std::string, unsigned int>> textureLib;
 
 class texture
 {

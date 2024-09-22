@@ -17,11 +17,25 @@ public:
 	void right(float);
 	void up(float);
 
+	void yaw(float angle);
+	void pitch(float angle);
+	void roll(float angle);
+
+	void updateLook(float yawAng, float pitchAng);
+
+	void normalizeVectors(void);
+
+	bool mouse_leftEdge = false;
+	bool mouse_rightEdge = false;
+	bool mouse_bottEdge = false;
+	bool mouse_TopEdge = false;
+
 private:
-	glm::vec3 eye;
-	glm::vec3 backV;
-	glm::vec3 upV;
-	glm::vec3 rightV;
+	glm::vec4 eye;
+	glm::vec4 backV;
+	glm::vec4 upV;
+	glm::vec4 global_upV;
+	glm::vec4 rightV;
 
 	float vp_width;
 	float vp_height;
